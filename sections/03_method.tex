@@ -1,0 +1,49 @@
+\section{Method}
+\label{sec:method}
+
+% Start with an overview, then define notation, describe each component, and
+% finish with complexity, implementation choices, or theoretical guarantees.
+
+\subsection{Overview}
+\placeholder{给出方法总览。建议先放一张系统流程图，再说明输入、核心模块和输出。}
+
+% Replace the following placeholder with an actual asset when available:
+% \includegraphics[width=0.92\\linewidth]{figures/method_overview.pdf}
+% \caption{Overview of the proposed method.}
+% \label{fig:method-overview}
+\placeholderfigure{Method overview placeholder. Replace the box with a figure in the \texttt{figures/} directory.}{fig:method-overview}
+
+\subsection{Problem formulation}
+Let $\mathcal{X}$ denote the input space, $\mathcal{Y}$ the output space, and
+$f_\theta: \mathcal{X}\to\mathcal{Y}$ the proposed model or procedure. Given a
+training set $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^{n}$, the generic objective is
+\begin{equation}
+  \min_{\theta}\; \frac{1}{n}\sum_{i=1}^{n}
+  \mathcal{L}\bigl(f_\theta(x_i),y_i\bigr)+\lambda\,\Omega(\theta),
+  \label{eq:objective}
+\end{equation}
+where $\mathcal{L}$ is the task loss, $\Omega$ is an optional regularizer, and
+$\lambda$ controls its strength. Replace this generic formulation with the
+notation and objective specific to your work.
+
+\subsection{Core component}
+\placeholder{定义最关键的模块、公式、假设和设计选择。解释每个符号及其作用。}
+
+\begin{algorithm}[t]
+  \caption{Generic training or inference procedure}
+  \label{alg:generic-procedure}
+  \begin{algorithmic}[1]
+    \Require Dataset $\mathcal{D}$, initialization $\theta_0$, number of steps $T$
+    \Ensure Trained parameters or predictions
+    \State $\theta \gets \theta_0$
+    \For{$t=1,\ldots,T$}
+      \State Sample a mini-batch $B\subseteq\mathcal{D}$
+      \State Compute objective $\mathcal{L}_B$ using \cref{eq:objective}
+      \State Update $\theta$ using the chosen optimizer or rule
+    \EndFor
+    \State \Return $\theta$
+  \end{algorithmic}
+\end{algorithm}
+
+\subsection{Analysis and implementation details}
+\placeholder{说明复杂度、理论性质、超参数、工程实现和可复现性细节。}

@@ -1,0 +1,111 @@
+% Shared packages, layout, theorem environments, and reusable macros.
+% The template is intentionally venue-neutral. Replace the document class and
+% citation style in main.tex when a target venue provides its own style file.
+
+% ---- Encoding and typography ------------------------------------------------
+% XeLaTeX/LuaLaTeX uses ctex so that the Chinese drafting guidance below is
+% rendered correctly. The pdfLaTeX branch keeps the template usable for an
+% English-only manuscript.
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\else
+  % Fandol is shipped with TeX Live and avoids relying on system-specific
+  % CJK fonts (for example STHeiti on macOS).
+  \usepackage[fontset=fandol]{ctex}
+\fi
+\usepackage{microtype}
+\usepackage{xspace}
+
+% ---- Page layout ------------------------------------------------------------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.08}
+\usepackage{parskip}
+\setlength{\parindent}{1.5em}
+\usepackage{placeins}
+
+% ---- Mathematics, algorithms, and units -----------------------------------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% ---- Figures, tables, and lists --------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{figures/}{figures/main/}{figures/appendix/}}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---- Citations and links ----------------------------------------------------
+\usepackage[round,authoryear]{natbib}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=green!40!black,
+  urlcolor=blue!65!black,
+  pdftitle={Your Paper Title}
+}
+
+% ---- Colors and writing helpers --------------------------------------------
+\definecolor{todoRed}{HTML}{B00020}
+\definecolor{noteBlue}{HTML}{0B5394}
+\definecolor{lightGray}{HTML}{F3F4F6}
+
+% Visible markers make unfinished sections easy to find during drafting.
+% Remove or redefine this command before submission if desired.
+\newcommand{\placeholder}[1]{\textcolor{todoRed}{\textbf{[TODO: #1]}}}
+\newcommand{\note}[1]{\textcolor{noteBlue}{\textit{[Note: #1]}}}
+\newcommand{\methodname}{\textsc{MethodName}\xspace}
+\newcommand{\datasetname}{\textsc{DatasetName}\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+
+% A blank figure placeholder that compiles before real assets are available.
+\newcommand{\placeholderfigure}[2]{%
+  \begin{figure}[t]
+    \centering
+    \fcolorbox{black!35}{lightGray}{%
+      \rule{0pt}{1.35in}\rule{0.88\linewidth}{0pt}%
+    }
+    \caption{#1}
+    \label{#2}
+  \end{figure}%
+}
+
+% ---- Theorem-like environments --------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% ---- Table helpers ----------------------------------------------------------
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\secondbest}[1]{\underline{#1}}
+
+% ---- Consistent figure/table references ------------------------------------
+\crefname{algorithm}{Algorithm}{Algorithms}
+\crefname{figure}{Figure}{Figures}
+\crefname{table}{Table}{Tables}
+\crefname{equation}{Equation}{Equations}

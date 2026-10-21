@@ -1,0 +1,50 @@
+% ============================================================================
+% Paper template entry point
+% Compile with: latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+% ============================================================================
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble}
+
+% ---- Metadata: edit these fields first -------------------------------------
+\newcommand{\papertitle}{Your Paper Title: A Clear and Specific Subtitle}
+\newcommand{\paperauthor}{First Author \\ Institution \\ \texttt{first.author@example.com}}
+\newcommand{\paperkeywords}{keyword one; keyword two; keyword three}
+
+\title{\papertitle}
+\author{\paperauthor}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% 用 150--250 字回答四个问题：研究什么、为什么重要、怎么做、得到什么结果。
+\placeholder{写摘要：问题背景、方法、核心结果和结论。}
+\end{abstract}
+
+\paragraph{Keywords:} \paperkeywords
+
+% ---- Main text --------------------------------------------------------------
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experiments}
+\input{sections/05_results_and_discussion}
+\input{sections/06_conclusion}
+
+% ---- References -------------------------------------------------------------
+% 使用 natbib 命令：\citet{key}（叙述式）和 \citep{key}（括号式）。
+% \nocite{*} 让空白模板也能生成示例参考文献；开始正式写作后可删除它。
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+% ---- Supplementary material -------------------------------------------------
+\clearpage
+\appendix
+\input{appendix/appendix_a_additional_details}
+\input{appendix/appendix_b_additional_results}
+
+\end{document}

@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.ttml": "xml",
+        "*.ttss": "css"
+    },
+    "latex-workshop.latex.autoBuild.run": "onFileChange",
+    "latex-workshop.latex.rootFile.useSubFile": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
+}
